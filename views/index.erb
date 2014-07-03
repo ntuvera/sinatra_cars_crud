@@ -6,6 +6,16 @@
 
 <ul>
   <% @cars.each do |car| %>
-  <li><%= car['make'] %> <%= car['model'] %>: <%= car['year']%></li>
+  <li><%= car['make'] %> <%= car['model'] %>: <%= car['year']%>
+    <form action="/cars/<%= car['id'] %>" method='get'>
+      <button type='submit'>Show</button>
+    </form>
+    <form action="/cars/<%= car['id'] %>/edit" method='get'>
+      <button type='submit'>Edit</button>
+    </form>
+    <form action="/cars/<%= car['id'] %>" method='post'>
+      <input type='hidden' name='_method' value="delete">
+      <button type='submit'>Delete</button>
+    </form></li>
   <% end %>
 </ul>

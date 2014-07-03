@@ -34,17 +34,18 @@ post '/cars' do
 end
 
 #edit
-get '/cars/:id' do
+get '/cars/:id/edit' do
   @car = Car.find(params[:id])
   erb :edit
 end
 
-put '/cards:/id' do
+put '/cars/:id' do
   car = Car.find(params[:id])
   car.make = params[:make]
   car.model= params[:model]
   car.year = params[:year]
-  redirect '/cars/#{ car.id }'
+  car.save
+  redirect '/cars'
 end
 
 #destroy

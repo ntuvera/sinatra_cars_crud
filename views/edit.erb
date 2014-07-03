@@ -1,0 +1,7 @@
+<form action='/cars/<%= @car.id %>' method='post'>
+  <input type='hidden' name='_method' value="put">
+  <input type='text' name='make' value='<%= @car.make %>'>
+  <input type='text' name='model' value='<%= @car.model %>'>
+  <input type='text' name='year' value='<%= @car.year %>'>
+  <input type='submit'>
+</form>
