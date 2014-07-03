@@ -4,8 +4,13 @@ Bundler.require
 require_relative 'models/car'
 require_relative './config'
 
+#redirect from root
+get '/' do
+  redirect '/cars/'
+end
+
 #index
-get '/cars/' do
+get '/cars' do
   @cars = Car.all
   erb :index
 end
@@ -23,8 +28,8 @@ end
 
 #create
 post '/cars' do
-  car = Car.create(make: params['make'], model: params['model'], year: params['year'], type: params['type'])
-  # car.save
+  car = Car.create(make: params['make'], model: params['model'], year: params['year'])
+  car.save
   redirect "/cars/#{ car.id }"
 end
 
@@ -39,7 +44,6 @@ put '/cards:/id' do
   car.make = params[:make]
   car.model= params[:model]
   car.year = params[:year]
-  car.type = params[:type]
   redirect '/cars/#{ car.id }'
 end
 
