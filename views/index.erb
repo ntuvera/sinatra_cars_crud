@@ -1,0 +1,11 @@
+<div>
+  <h2>Sinatra's Garage</h2>
+</div>
+
+<a href='/cars/new'><button>Add a New Car</button></a>
+
+<ul>
+  <% @cars.each do |car| %>
+  <li><%= car['make'] %> <%= car['model'] %>: <%= car['type'] %>, <%= car['year']%></li>
+  <% end %>
+</ul>
